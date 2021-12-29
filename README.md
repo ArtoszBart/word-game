@@ -1,2 +1,2 @@
-# word-game
+# Word Game
 Word Quiz
