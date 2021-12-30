@@ -9,14 +9,10 @@ function App() {
   const [score, setScore] = useState(0);
 
   function getRandomWords() {
-    var options = {
+    const options = {
       method: 'GET',
-      url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
-      params: { level: chosenLv, area: 'sat' },
-      headers: {
-        'x-rapidapi-host': 'twinword-word-association-quiz.p.rapidapi.com',
-        'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
-      }
+      url: 'http://localhost:8000/game',
+      params: { level: chosenLv, area: 'sat' }
     };
 
     axios.request(options).then(response => {
@@ -25,6 +21,7 @@ function App() {
     }).catch(err => {
       console.error(err);
     });
+
   }
 
   useEffect(() => {
