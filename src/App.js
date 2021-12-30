@@ -39,12 +39,12 @@ function App() {
       setCorrectAsnwers([...correctAnswers, option]);
       setScore((score) => score + 1);
     } else {
-      setScore((score) => score - 1);
+      // setScore((score) => score - 1);
     }
     setClicked([...clicked, option]);
   }
 
-  console.log(correctAnswers);
+
 
   return (
     <div className="app">
@@ -81,18 +81,39 @@ function App() {
                 {question.option.map((option, optionIndex) => (
                   <div className="table-card-answers-button" key={optionIndex}>
                     <button
-                      disabled={clicked.includes(option)}
-                      onClick={() => checkAnswer(option, optionIndex + 1, question.correct)}
+                      disabled={clicked.includes(question)}
+                      onClick={() => checkAnswer(question, optionIndex + 1, question.correct)}
                     >{option}</button>
-                    {correctAnswers.includes(option) && <p>Correct!</p>}
                   </div>
                 ))}
               </div>
+              <p>&nbsp;
+                {
+                  (() => {
+                    if (correctAnswers.includes(question)) {
+                      return (
+                        'Correct!'
+                      )
+                    } else if (clicked.includes(question)) {
+                      return (
+                        'Wrong!'
+                      )
+                    }
+                  })()
+                }
+              </p>
+
             </div>
           ))}
 
         </div>
-        <button onClick={() => setChosenLv(null)}>Go back</button>
+        <button onClick={() => {
+          setChosenLv(null)
+          setScore(0)
+          setWords(null);
+          setCorrectAsnwers([]);
+          setClicked([]);
+        }}>Go back</button>
       </div>}
     </div>
 
