@@ -1,0 +1,59 @@
+@import 'config';
+
+.app {
+	font-family: $mainFont;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding-top: 100px;
+}
+
+select {
+	margin: 5px;
+	padding: 8px;
+	border-radius: 5px;
+	border: none;
+	background-color: darkcyan;
+	color: white;
+}
+
+button {
+	margin: 5px;
+	padding: 8px;
+	border-radius: 5px;
+	border: none;
+	background-color: darkcyan;
+	color: white;
+
+	&:disabled {
+		background-color: darkgray;
+		color: darkolivegreen
+	}
+}
+
+.game {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.table {
+	max-width: 1000px;
+
+	&-card {
+		background-color: antiquewhite;
+		padding: 10px;
+		border-radius: 20px;
+		margin: 10px;
+
+		&-answers{
+			display: flex;
+			flex-direction: row;
+
+			&-button {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
